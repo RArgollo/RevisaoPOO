@@ -1,0 +1,5 @@
+C:\Users\rafae\projetosDODEV\RevisaoPOO\obj\Debug\net6.0\RevisaoPOO.Test.csproj.AssemblyReference.cache
+C:\Users\rafae\projetosDODEV\RevisaoPOO\obj\Debug\net6.0\RevisaoPOO.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\projetosDODEV\RevisaoPOO\obj\Debug\net6.0\RevisaoPOO.Test.AssemblyInfoInputs.cache
+C:\Users\rafae\projetosDODEV\RevisaoPOO\obj\Debug\net6.0\RevisaoPOO.Test.AssemblyInfo.cs
+C:\Users\rafae\projetosDODEV\RevisaoPOO\obj\Debug\net6.0\RevisaoPOO.Test.csproj.CoreCompileInputs.cache
