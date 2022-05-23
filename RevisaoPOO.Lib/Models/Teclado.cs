@@ -2,25 +2,12 @@ namespace RevisaoPOO.Lib.Models
 {
     public class Teclado : Produto
     {
-        public bool SemFio { get; set; }
         public bool Mecanico { get; set; }
 
-        public Teclado(string nome, string marca, string descricao, double valor, int estoque, bool semFio, bool mecanico) : base(nome, marca, descricao, valor, estoque)
+        public Teclado(int id, string nome, string marca, bool semFio, string descricao, double valor, int estoque, bool mecanico) : base(id, nome, marca, semFio, descricao, valor, estoque)
         {
-            SetSemFio(semFio);
             SetMecanico(mecanico);
         }
-
-        public void SetSemFio(bool semFio)
-        {
-            SemFio = semFio;
-        }
-
-        public bool GetSemFio()
-        {
-            return SemFio;
-        }
-
         public void SetMecanico(bool mecanico)
         {
             Mecanico = mecanico;
@@ -29,6 +16,20 @@ namespace RevisaoPOO.Lib.Models
         public bool GetMecanico()
         {
             return Mecanico;
+        }
+
+        public override double CalcularValor(double valorBase)
+        {
+            var valorFinal = valorBase;
+            if (Mecanico)
+            {
+                valorFinal = valorBase + 200;
+            }
+            if (SemFio)
+            {
+                valorFinal = valorFinal * 1.15;
+            }
+            return valorFinal;
         }
     }
 }

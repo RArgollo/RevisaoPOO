@@ -6,7 +6,7 @@ namespace RevisaoPOO.Teste
     {
           private Teclado CriaTecladoPadrao()
         {
-            return new Teclado("teclado", "razr", "teclado gamer", 100, 5, true, true);
+            return new Teclado(1, "teclado", "razr", true, "teclado gamer", 100, 5, true);
         }
 
         [Fact]
@@ -25,6 +25,15 @@ namespace RevisaoPOO.Teste
             teclado.GetMecanico();
             var mecanicoEsperado = true;
             Assert.Equal(mecanicoEsperado, teclado.Mecanico);
+        }
+        
+        [Fact]
+        public void TesteCalcularValor()
+        {
+            var teclado = CriaTecladoPadrao();
+            teclado.GetValor();
+            var valorEsperado = 345;
+            Assert.Equal(valorEsperado, teclado.Valor);
         }
     }
 }

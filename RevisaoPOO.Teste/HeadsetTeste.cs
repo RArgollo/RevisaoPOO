@@ -6,7 +6,7 @@ namespace RevisaoPOO.Teste
     {
         private Headset CriaHeadsetPadrao()
         {
-            return new Headset("h7", "logitech", "h7 gamer", 100, 5, true, true);
+            return new Headset(1, "h7", "logitech",true , "h7 gamer", 100, 5, true);
         }
 
         [Fact]
@@ -25,6 +25,15 @@ namespace RevisaoPOO.Teste
             headset.GetSurround();
             var surroundEsperado = true;
             Assert.Equal(surroundEsperado, headset.Surround);
+        }
+        
+        [Fact]
+        public void TesteCalcularValor()
+        {
+            var headset = CriaHeadsetPadrao();
+            headset.GetValor();
+            var valorEsperado = 600;
+            Assert.Equal(valorEsperado, headset.Valor);
         }
     }
 }

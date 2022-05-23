@@ -2,25 +2,12 @@ namespace RevisaoPOO.Lib.Models
 {
     public class Headset : Produto
     {
-        public bool SemFio { get; set; }
         public bool Surround { get; set; }
 
-        public Headset(string nome, string marca, string descricao, double valor, int estoque, bool semFio, bool surround) : base(nome, marca, descricao, valor, estoque)
+        public Headset(int id, string nome, string marca, bool semFio, string descricao, double valor, int estoque, bool surround) : base(id, nome, marca, semFio, descricao, valor, estoque)
         {
-            SetSemFio(semFio);
             SetSurround(surround);
         }
-
-        public void SetSemFio(bool semFio)
-        {
-            SemFio = semFio;
-        }
-
-        public bool GetSemFio()
-        {
-            return SemFio;
-        }
-
         public void SetSurround(bool surround)
         {
             Surround = surround;
@@ -29,6 +16,20 @@ namespace RevisaoPOO.Lib.Models
         public bool GetSurround()
         {
             return Surround;
+        }
+
+        public override double CalcularValor(double valorBase)
+        {
+            var valorFinal = valorBase;
+            if (Surround && SemFio)
+            {
+                valorFinal = valorBase + 500;
+            }
+            else if (Surround || SemFio)
+            {
+                valorFinal = valorFinal + 150;
+            }
+            return valorFinal;
         }
     }
 }

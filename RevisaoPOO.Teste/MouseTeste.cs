@@ -4,9 +4,9 @@ namespace RevisaoPOO.Teste
 {
     public class MouseTeste
     {
-         private Mouse CriaMousePadrao()
+        private Mouse CriaMousePadrao()
         {
-            return new Mouse("mouse", "logitech", "mouse gamer", 100, 5, 6000, true);
+            return new Mouse(1, "mouse", "logitech", true, "mouse gamer", 100, 5, 6000);
         }
 
         [Fact]
@@ -18,13 +18,22 @@ namespace RevisaoPOO.Teste
             Assert.Equal(dpiEsperado, mouse.DPI);
         }
 
-          [Fact]
+        [Fact]
         public void TesteGetSemFio()
         {
             var mouse = CriaMousePadrao();
             mouse.GetSemFio();
             var semFioEsperado = true;
             Assert.Equal(semFioEsperado, mouse.SemFio);
+        }
+
+        [Fact]
+        public void TesteCalcularValor()
+        {
+            var mouse = CriaMousePadrao();
+            mouse.GetValor();
+            var valorEsperado = (100 + (6000 / 50)) * 1.15;
+            Assert.Equal(valorEsperado, mouse.Valor);
         }
     }
 }

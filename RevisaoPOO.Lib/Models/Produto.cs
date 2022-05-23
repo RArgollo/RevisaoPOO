@@ -2,19 +2,33 @@ namespace RevisaoPOO.Lib.Models
 {
     public class Produto
     {
+        public int ID { get; set; }
         public string Nome { get; set; }
         public string Marca { get; set; }
+        public bool SemFio { get; set; }
         public string Descricao { get; set; }
         public double Valor { get; set; }
         public int Estoque { get; set; }
 
-        public Produto(string nome, string marca, string descricao, double valor, int estoque)
+        public Produto(int id, string nome, string marca, bool semFio, string descricao, double valorBase, int estoque)
         {
+            SetID(id);
             SetNome(nome);
             SetMarca(marca);
+            SetSemFio(semFio);
             SetDescricao(descricao);
-            SetValor(valor);
+            SetValor(valorBase);
             SetEstoque(estoque);
+        }
+
+        public void SetID(int id)
+        {
+            ID = id;
+        }
+
+        public int GetID()
+        {
+            return ID;
         }
 
         public void SetNome(string nome)
@@ -37,6 +51,17 @@ namespace RevisaoPOO.Lib.Models
             return Marca;
         }
 
+        public void SetSemFio(bool semFio)
+        {
+            SemFio = semFio;
+        }
+
+        public bool GetSemFio()
+        {
+            return SemFio;
+        }
+
+
         public void SetDescricao(string descricao)
         {
             Descricao = descricao;
@@ -54,6 +79,7 @@ namespace RevisaoPOO.Lib.Models
 
         public double GetValor()
         {
+            Valor = CalcularValor(Valor);
             return Valor;
         }
 
@@ -65,6 +91,22 @@ namespace RevisaoPOO.Lib.Models
         public int GetEstoque()
         {
             return Estoque;
+        }
+
+        public void AdicionarEstoque(int quantidadeAdicionada)
+        {
+            Estoque = Estoque + quantidadeAdicionada;
+        }
+
+        public void RemoverEstoque(int quantidadeRemovida)
+        {
+            Estoque = Estoque - quantidadeRemovida;
+        }
+
+        public virtual double CalcularValor(double valorBase)
+        {
+            var valorFinal = valorBase;
+            return valorFinal;
         }
     }
 }

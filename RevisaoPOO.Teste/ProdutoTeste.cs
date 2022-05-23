@@ -2,11 +2,11 @@ using Xunit;
 using RevisaoPOO.Lib.Models;
 namespace RevisaoPOO.Teste
 {
-   public class ProdutoTest
+    public class ProdutoTest
     {
         private Produto CriaProdutoPadrao()
         {
-            return new Produto("mouse", "logitech", "mouse gamer", 100, 5);
+            return new Produto(1, "mouse", "logitech", true, "mouse gamer", 100, 5);
         }
 
         [Fact]
@@ -16,6 +16,15 @@ namespace RevisaoPOO.Teste
             produto.GetNome();
             var nomeEsperado = "mouse";
             Assert.Equal(nomeEsperado, produto.Nome);
+        }
+
+        [Fact]
+        public void TesteGetID()
+        {
+            var produto = CriaProdutoPadrao();
+            produto.GetID();
+            var idEsperado = 1;
+            Assert.Equal(idEsperado, produto.ID);
         }
 
         [Fact]
@@ -45,12 +54,30 @@ namespace RevisaoPOO.Teste
             Assert.Equal(valorEsperado, produto.Valor);
         }
 
-         [Fact]
+        [Fact]
         public void TesteGetEstoque()
         {
             var produto = CriaProdutoPadrao();
             produto.GetEstoque();
             var estoqueEsperado = 5;
+            Assert.Equal(estoqueEsperado, produto.Estoque);
+        }
+
+        [Fact]
+        public void TesteAdicionarEstoque()
+        {
+            var produto = CriaProdutoPadrao();
+            produto.AdicionarEstoque(2);
+            var estoqueEsperado = 7;
+            Assert.Equal(estoqueEsperado, produto.Estoque);
+        }
+
+        [Fact]
+        public void TesteRemoverEstoque()
+        {
+            var produto = CriaProdutoPadrao();
+            produto.RemoverEstoque(2);
+            var estoqueEsperado = 3;
             Assert.Equal(estoqueEsperado, produto.Estoque);
         }
     }

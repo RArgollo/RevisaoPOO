@@ -11,6 +11,11 @@ namespace RevisaoPOO.Teste
             return new Usuario("Rafael", "rafaelargollo22@hotmail.com", "senha123");
         }
 
+        private Produto CriaProdutoPadrao()
+        {
+            return new Mouse(1, "mouse", "logitech", true, "mouse gamer", 100, 5, 6000);
+        }
+
         private List<Produto> CriaListaProdutosPadrao()
         {
             return new List<Produto>();
@@ -18,7 +23,7 @@ namespace RevisaoPOO.Teste
 
         private Pedido CriaPedidoPadrao()
         {
-            return new Pedido(CriaUsuarioPadrao(), CriaListaProdutosPadrao(), 200, "entregue", "21/03/2022");
+            return new Pedido(CriaUsuarioPadrao(), CriaListaProdutosPadrao(), 0, "entregue", "21/03/2022");
         }
 
         [Fact]
@@ -44,7 +49,7 @@ namespace RevisaoPOO.Teste
         {
             var pedido = CriaPedidoPadrao();
             pedido.GetValorTotal();
-            var valorTotalEsperado = 200;
+            var valorTotalEsperado = 0;
             Assert.Equal(valorTotalEsperado, pedido.ValorTotal);
         }
 
@@ -66,5 +71,30 @@ namespace RevisaoPOO.Teste
             Assert.Equal(dataEsperada, pedido.Data);
         }
 
+        /*
+                [Fact]
+                public void TesteAdicionarProduto()
+                {
+                    var pedido = CriaPedidoPadrao();
+                    var listaProdutos = CriaListaProdutosPadrao();
+                    var produto = CriaProdutoPadrao();
+                    pedido.AdicionarProduto(produto);
+                    var idEsperado = 1;
+                    Assert.Equal(idEsperado, listaProdutos[0].ID);
+                }
+                */
+
+        [Fact]
+        public void TesteFinalizarPedido()
+        {
+            var pedido = CriaPedidoPadrao();
+            var produto = CriaProdutoPadrao();
+            pedido.AdicionarProduto(produto);
+            var produto2 = CriaProdutoPadrao();
+            pedido.AdicionarProduto(produto2);
+            pedido.FinalizarPedido();
+            var valorFinalEsperado = 2*((100 + (6000 / 50)) * 1.15);
+            Assert.Equal(valorFinalEsperado, pedido.ValorTotal);
+        }
     }
 }

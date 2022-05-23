@@ -66,5 +66,24 @@ namespace RevisaoPOO.Lib.Models
         {
             return Data;
         }
+
+        public void AdicionarProduto(Produto produto)
+        {
+            Produtos.Add(produto);
+        }
+
+        public void RemoverProduto(Produto produto)
+        {
+            Produtos.Remove(produto);
+        }
+
+        public double FinalizarPedido()
+        {            
+            for (int i = 0; i < Produtos.Count; i++)
+            {
+                ValorTotal = ValorTotal + Produtos[i].GetValor();
+            }
+            return ValorTotal;
+        }
     }
 }
