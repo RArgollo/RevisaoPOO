@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevisaoPOO.Lib", "RevisaoPO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevisaoPOO.Teste", "RevisaoPOO.Teste\RevisaoPOO.Teste.csproj", "{11AB4784-6BB5-425E-8CCB-05B3F4F92818}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevisaoPOO.web", "RevisaoPOO.web\RevisaoPOO.web.csproj", "{C7B4307D-45BF-4252-B264-41097209F334}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{11AB4784-6BB5-425E-8CCB-05B3F4F92818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11AB4784-6BB5-425E-8CCB-05B3F4F92818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11AB4784-6BB5-425E-8CCB-05B3F4F92818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B4307D-45BF-4252-B264-41097209F334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B4307D-45BF-4252-B264-41097209F334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B4307D-45BF-4252-B264-41097209F334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B4307D-45BF-4252-B264-41097209F334}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

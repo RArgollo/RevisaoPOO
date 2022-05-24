@@ -1,3 +1,4 @@
+using RevisaoPOO.Lib.Exceptions;
 namespace RevisaoPOO.Lib.Models
 {
     public class Pedido
@@ -74,11 +75,18 @@ namespace RevisaoPOO.Lib.Models
 
         public void RemoverProduto(Produto produto)
         {
-            Produtos.Remove(produto);
+            if (Produtos.Contains(produto))
+            {
+                Produtos.Remove(produto);
+            }
+            else
+            {
+                throw new ValorInvalidoException("O produto a ser removido deve existir na lista");
+            }
         }
 
         public double FinalizarPedido()
-        {            
+        {
             for (int i = 0; i < Produtos.Count; i++)
             {
                 ValorTotal = ValorTotal + Produtos[i].GetValor();

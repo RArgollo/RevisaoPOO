@@ -1,3 +1,4 @@
+using RevisaoPOO.Lib.Exceptions;
 namespace RevisaoPOO.Lib.Models
 {
     public class Produto
@@ -100,7 +101,14 @@ namespace RevisaoPOO.Lib.Models
 
         public void RemoverEstoque(int quantidadeRemovida)
         {
-            Estoque = Estoque - quantidadeRemovida;
+            if (quantidadeRemovida <= Estoque)
+            {
+                Estoque = Estoque - quantidadeRemovida;
+            }
+            else
+            {
+                throw new ValorInvalidoException("A quantidade a ser removida deve ser menor ou igual que a quantidade em estoque");
+            }
         }
 
         public virtual double CalcularValor(double valorBase)
